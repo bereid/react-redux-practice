@@ -8,27 +8,27 @@ export default class App extends Component {
     this.state = {
       counter: 0,
     };
-    this.buttonClick = this.buttonClick.bind(this);
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
   }
 
-  buttonClick(event) {
-    const { counter } = this.state;
-    if (event.target.id === 'adjhozzamar') {
-      this.setState({ counter: counter + 1 });
-    } else if (event.target.id === 'vegyelmarel') {
-      if (counter > 0) {
-        this.setState({ counter: counter - 1 });
-      }
-    }
+  increment() {
+    // const { counter } = this.state;
+    this.setState(prevState => ({ counter: prevState.counter + 1 }));
+  }
+
+  decrement() {
+    // const { counter } = this.state;
+    this.setState(prevState => ({ counter: prevState.counter - 1 }));
   }
 
   render() {
     const { counter } = this.state;
     return (
       <div>
-        <Button handleClick={this.buttonClick} title="Adj hozza tes" />
+        <Button handleClick={this.increment} title="Adj hozza tes" id="adjhozzamar" />
         <Display display={counter} />
-        <Button handleClick={this.buttonClick} title="Vegyel el belole tesom" />
+        <Button handleClick={this.decrement} title="Vegyel el belole tesom" id="vegyelmarel" />
       </div>
     );
   }
