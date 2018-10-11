@@ -13,13 +13,15 @@ export default class App extends Component {
   }
 
   increment() {
-    // const { counter } = this.state;
     this.setState(prevState => ({ counter: prevState.counter + 1 }));
   }
 
   decrement() {
-    // const { counter } = this.state;
-    this.setState(prevState => ({ counter: prevState.counter - 1 }));
+    this.setState(prevState => ({
+      counter: prevState.counter > 0
+        ? prevState.counter - 1
+        : 0,
+    }));
   }
 
   render() {
