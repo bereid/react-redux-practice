@@ -5,10 +5,7 @@ const defaultState = {
   count: 0,
 };
 
-const mapStateToProps = (state = defaultState) => {
-  console.log(state);
-  return ({ display: state.changeReducer.value });
-};
+const mapStateToProps = (state = defaultState) => ({ display: state.changeReducer.value });
 
 const DisplayContainer = connect(mapStateToProps)(Display);
 
