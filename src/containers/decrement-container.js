@@ -1,20 +1,17 @@
-import { connect } from 'redux';
+import { connect } from 'react-redux';
 import Decrement from '../actions/decrement';
 import Button from '../components/Button';
 
-const mapStateToProps = (state) => {          // eslint-disable-line
-  return {
-    type: 'DECREMENT',
-  };
-};
+const mapStateToProps = () => ({
+  type: 'DECREMENT',
+  title: 'Decrement',
+});
 
-const mapDispatchToProps = (dispatch) => {          // eslint-disable-line
-  return {
-    onClick: () => {
-      dispatch(Decrement);
-    },
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  handleClick: () => {
+    dispatch(Decrement(1));
+  },
+});
 
 const DecrementContainer = connect(mapStateToProps, mapDispatchToProps)(Button);
 

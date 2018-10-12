@@ -1,17 +1,18 @@
-import { connect } from 'redux';
+import { connect } from 'react-redux';
 import Increment from '../actions/increment';
 import Button from '../components/Button';
 
 const mapStateToProps = (state) => {          // eslint-disable-line
   return {
     type: 'INCREMENT',
+    title: 'Increment',
   };
 };
 
 const mapDispatchToProps = (dispatch) => {          // eslint-disable-line
   return {
-    onClick: () => {
-      dispatch(Increment);
+    handleClick: () => {
+      dispatch(Increment(1));
     },
   };
 };
